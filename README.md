@@ -1,3 +1,11 @@
+# Kennels
+## NSS Book 4 React Project
+
+This is the project for NSS Book 4, covering the principles of React.JS. This will be updated as more features are added.
+Currently, the project consists of the code for Chapter 1, which is just the initial setup.
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
