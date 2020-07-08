@@ -1,12 +1,11 @@
 import React from "react";
 
 const LocationCard = () => {
-    return ( 
-        <address>
-        Visit Us at the Nashville North Location
-    <br />
-    500 Puppy Way
-    </address>
+    return (
+        <>
+            <h3>Our Main Location</h3>
+            <p>Nashville North</p>
+        </>
     );
 };
 
