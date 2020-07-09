@@ -2,10 +2,12 @@ import React from "react";
 
 const LocationCard = () => {
     return (
-        <>
-            <h3>Our Main Location</h3>
-            <p>Nashville North</p>
-        </>
+        <div className="card">
+            <div className="card-content">  
+                <h3>Location:</h3>
+                <p>Nashville North</p>
+            </div>
+        </div>
     );
 };
 
