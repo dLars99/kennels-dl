@@ -18,7 +18,7 @@ const LocationList = () => {
 
     return (
         <div className="container-cards">
-            {locations.map(Location => <LocationCard />)}
+            {locations.map(location => <LocationCard key={location.id} location={location}/>)}
         </div>
     )
 }
