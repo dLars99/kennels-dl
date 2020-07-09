@@ -9,9 +9,9 @@
         { "id": 2, "name": "Nashville South"}
     ],
     "employees": [
-        { "id": 1, "name": "Donny Dolittle"},
-        { "id": 2, "name": "Tommy Tortis"},
-        { "id": 3, "name": "Sam Samson"}
+        { "id": 1, "name": "Donny Dolittle", "position": "Mop Wielder"},
+        { "id": 2, "name": "Tommy Tortis", "position": "Assistant to the Regional Manager"},
+        { "id": 3, "name": "Sam Samson", "position": "Alligator Wrangler"}
     ],
     "owners": [
         { "id": 1, "name": "Yan Yna"},
