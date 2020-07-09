@@ -23,8 +23,10 @@ import AnimalManager from '../../modules/AnimalManager';
     // Finally we use map() to "loop over" the animals array to show a list of animal cards
     return (
         <div className="container-cards">
-        {animals.map(animal => <AnimalCard />)}
+        {animals.map(animal => <AnimalCard key={animal.id} animal={animal} />)}
         </div>
     );
+
 };
+
 export default AnimalList
