@@ -1,21 +1,81 @@
 {
-    "animals": [
-        { "id": 1, "name": "Doodles", "breed": "Poodle"},
-        { "id": 2, "name": "Decker", "breed": "German Shepherd" },
-        { "id": 3, "name": "Esme", "breed": "Pitbull" }
-    ],
-    "locations": [
-        { "id": 1, "name": "Nashville North", "address": "400 Massman Dr."},
-        { "id": 2, "name": "Nashville South", "address": "7245 Nolensville Rd."}
-    ],
-    "employees": [
-        { "id": 1, "name": "Donny Dolittle", "position": "Mop Wielder"},
-        { "id": 2, "name": "Tommy Tortis", "position": "Assistant to the Regional Manager"},
-        { "id": 3, "name": "Sam Samson", "position": "Alligator Wrangler"}
-    ],
-    "owners": [
-        { "id": 1, "name": "Yan Yna"},
-        { "id": 2, "name": "Myrtle Murt"},
-        { "id": 3, "name": "Eunice Yunik"}
-    ]
+  "animals": [
+    {
+      "id": 1,
+      "name": "Doodles",
+      "breed": "Poodle"
+    },
+    {
+      "id": 2,
+      "name": "Decker",
+      "breed": "German Shepherd"
+    },
+    {
+      "id": 3,
+      "name": "Esme",
+      "breed": "Pitbull"
+    },
+    {
+      "name": "Sparkles",
+      "breed": "Carnivorous Platypus",
+      "id": 4
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Nashville North",
+      "address": "400 Massman Dr."
+    },
+    {
+      "id": 2,
+      "name": "Nashville South",
+      "address": "7245 Nolensville Rd."
+    },
+    {
+      "name": "Murfreesboro",
+      "address": "305 Warrior Dr.",
+      "id": 3
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Donny Dolittle",
+      "position": "Mop Wielder"
+    },
+    {
+      "id": 2,
+      "name": "Tommy Tortis",
+      "position": "Assistant to the Regional Manager"
+    },
+    {
+      "id": 3,
+      "name": "Sam Samson",
+      "position": "Alligator Wrangler"
+    },
+    {
+      "name": "Wallace Walby",
+      "position": "Marsupial trainer",
+      "id": 4
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "name": "Yan Yna"
+    },
+    {
+      "id": 2,
+      "name": "Myrtle Murt"
+    },
+    {
+      "id": 3,
+      "name": "Eunice Yunik"
+    },
+    {
+      "name": "Horton Hoo",
+      "id": 4
+    }
+  ]
 }
