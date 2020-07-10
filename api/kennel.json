@@ -5,8 +5,8 @@
         { "id": 3, "name": "Esme", "breed": "Pitbull" }
     ],
     "locations": [
-        { "id": 1, "name": "Nashville North"},
-        { "id": 2, "name": "Nashville South"}
+        { "id": 1, "name": "Nashville North", "address": "400 Massman Dr."},
+        { "id": 2, "name": "Nashville South", "address": "7245 Nolensville Rd."}
     ],
     "employees": [
         { "id": 1, "name": "Donny Dolittle", "position": "Mop Wielder"},
