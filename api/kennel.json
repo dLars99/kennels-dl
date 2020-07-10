@@ -14,6 +14,11 @@
       "id": 3,
       "name": "Esme",
       "breed": "Pitbull"
+    },
+    {
+      "name": "Sparkles",
+      "breed": "Carnivorous Platypus",
+      "id": 4
     }
   ],
   "locations": [
@@ -26,6 +31,11 @@
       "id": 2,
       "name": "Nashville South",
       "address": "7245 Nolensville Rd."
+    },
+    {
+      "name": "Murfreesboro",
+      "address": "305 Warrior Dr.",
+      "id": 3
     }
   ],
   "employees": [
@@ -43,6 +53,11 @@
       "id": 3,
       "name": "Sam Samson",
       "position": "Alligator Wrangler"
+    },
+    {
+      "name": "Wallace Walby",
+      "position": "Marsupial trainer",
+      "id": 4
     }
   ],
   "owners": [
@@ -57,6 +72,10 @@
     {
       "id": 3,
       "name": "Eunice Yunik"
+    },
+    {
+      "name": "Horton Hoo",
+      "id": 4
     }
   ]
 }
