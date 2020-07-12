@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 
 const AnimalCard = props => {
 
+    // Default image if no image is in the database
+    const image = !props.animal.image ? "dog.svg" : props.animal.image
+
     return ( 
         <div className="card">
             <div className="card-content" >
-                <picture>
-                    <img src = {require("./dog.svg")} alt="My Dog" />
+                <picture className="card-image">
+                    <img src={require(`./images/${image}`)} alt="My Dog" />
                 </picture>
                 <h3>
                     Name: <span className="card-petname">{props.animal.name}</span>
