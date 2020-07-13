@@ -17,8 +17,8 @@ const EmployeeList = (props) => {
     }, [])
 
     const deleteEmployee = id => {
-        EmployeeManager.delete(id).
-        then(() => EmployeeManager.getAll().then(setEmployees))
+        EmployeeManager.delete(id)
+        .then(() => EmployeeManager.getAll().then(setEmployees))
     }
 
     return (
