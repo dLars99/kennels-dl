@@ -24,13 +24,13 @@
   "locations": [
     {
       "id": 1,
-      "name": "Nashville North",
-      "address": "400 Massman Dr."
+      "name": "Donny Dolittle",
+      "position": "Mop Jockey"
     },
     {
       "id": 2,
       "name": "Nashville South",
-      "address": "7245 Nolensville Rd."
+      "address": "7247 Nolensville Rd."
     },
     {
       "name": "Murfreesboro",
@@ -71,7 +71,7 @@
     },
     {
       "id": 3,
-      "name": "Eunice Yunik"
+      "name": "Eunice Yoonit"
     },
     {
       "name": "Horton Hoo",
