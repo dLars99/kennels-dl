@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect } from "react-router-dom"
 import AnimalManager from '../../modules/AnimalManager';
 import './AnimalDetail.css'
 
@@ -10,11 +11,15 @@ const AnimalDetail = props => {
         //get(id) from AnimalManager and hang on to the data; put it into state
         AnimalManager.get(props.animalId)
         .then(animal => {
-            setAnimal({
-                name: animal.name,
-                breed: animal.breed
-            });
-            setIsLoading(false);
+            if (animal.id) {
+                setAnimal({
+                    name: animal.name,
+                    breed: animal.breed
+                });
+                setIsLoading(false);
+            } else {
+                props.history.push("/animals")
+            }
         });
     }, [props.animalId]);
 
