@@ -18,7 +18,9 @@ import OwnerEditForm from "./owner/OwnerEditForm"
 import Login from "./auth/Login"
 
 const ApplicationViews = () => {
-    const isAuthenticated = () => sessionStorage.getItem("credentials") !== null
+    const isAuthenticated = () => {
+        return (sessionStorage.getItem("credentials") !== null && localStorage.getItem("credentials") !== null) ? false : true
+    }
 
     return (
         <React.Fragment>
