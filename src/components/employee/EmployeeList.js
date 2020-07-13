@@ -31,7 +31,7 @@ const EmployeeList = (props) => {
             </button>
             </section>
             <div className="container-cards">
-                {employees.map(employee => <EmployeeCard key={employee.id} employee={employee} deleteEmployee={deleteEmployee}/>)}
+                {employees.map(employee => <EmployeeCard key={employee.id} employee={employee} deleteEmployee={deleteEmployee} {...props} />)}
             </div>
         </>
     )
