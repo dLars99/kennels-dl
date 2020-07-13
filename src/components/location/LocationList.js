@@ -31,7 +31,7 @@ const LocationList = (props) => {
             </button>
             </section>
         <div className="container-cards">
-            {locations.map(store => <LocationCard key={store.id} store={store} deleteLocation={deleteLocation} {...props} />)}
+            {locations.map(location => <LocationCard key={location.id} thisLocation={location} deleteLocation={deleteLocation} {...props} />)}
         </div>
         </>
     )

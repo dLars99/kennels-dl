@@ -18,7 +18,7 @@ const LocationEditForm = props => {
 
     // This is an edit, so we need the id
     const editedLocation = {
-      id: props.match.params.LocationId,
+      id: props.match.params.locationId,
       name: location.name,
       address: location.address
     };
