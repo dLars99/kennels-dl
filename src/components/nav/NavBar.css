@@ -38,3 +38,7 @@ small {
   .nav-link:hover {
     color: maroon;
   }
+
+  .selected {
+    color: lime;
+  }
