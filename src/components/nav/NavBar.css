@@ -41,4 +41,5 @@ small {
 
   .selected {
     color: lime;
+    pointer-events: none;
   }
