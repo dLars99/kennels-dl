@@ -21,7 +21,7 @@ const Login = props => {
       "credentials",
       JSON.stringify(credentials)
     );
-    props.history.push("/animals");
+    props.history.push("/");
   }
 
   return (
