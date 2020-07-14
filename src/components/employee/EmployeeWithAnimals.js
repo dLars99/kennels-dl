@@ -10,7 +10,13 @@ const EmployeeWithAnimals = props => {
     //got here now make call to get employee with animal
     EmployeeManager.getWithAnimals(props.match.params.employeeId)
       .then(APIResult => {
-        setEmployee(APIResult);
+          const image = (APIResult.image) ? APIResult.image : "employee-default.jpg"
+        setEmployee({
+            name: APIResult.name,
+            position: APIResult.position,
+            locationId: APIResult.locationId,
+            image: image
+        })
         setAnimals(APIResult.animals);
       });
   }, []);

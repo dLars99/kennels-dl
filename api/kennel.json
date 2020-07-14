@@ -27,6 +27,12 @@
       "image": "animal4.png",
       "employeeId": 1,
       "id": 4
+    },
+    {
+      "id": 5,
+      "name": "Chubbs",
+      "breed": "Spork",
+      "employeeId": 2
     }
   ],
   "locations": [
