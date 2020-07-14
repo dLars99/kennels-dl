@@ -16,7 +16,9 @@ const AnimalCard = props => {
                     Name: <span className="card-petname">{props.animal.name}</span>
                 </h3>
                 <p>Breed: {props.animal.breed}</p>
+                {props.deleteAnimal &&
                 <button type="button" onClick={() => props.deleteAnimal(props.animal.id)}>Discharge</button>
+                }
             </div>
             <Link to={`/animals/${props.animal.id}`}>
                 <button>Details</button>
