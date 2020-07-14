@@ -6,7 +6,7 @@ const Home = () => {
     const [spotlightId, setSpotlightId] = useState(0);
 
     const refreshSpotlightAnimal = () => {
-        AnimalManager.getRandomId().then(setSpotlightId);
+        AnimalManager.getRandomId(spotlightId).then(setSpotlightId);
     };
 
     useEffect(() => {

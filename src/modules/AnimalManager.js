@@ -30,13 +30,20 @@ export default {
             body: JSON.stringify(editedAnimal)
         }).then(data => data.json())
     },
-    getRandomId() {
+    getRandomId(currentId) {
         return fetch(`${remoteURL}/animals`)
             .then(result => result.json())
             .then(animals => {
-                const randomIndex = Math.floor(Math.random() * animals.length);
-                const randomAnimal = animals[randomIndex];
-                return randomAnimal.id;
+                const randomizer = (currentId) => {
+                    const randomIndex = Math.floor(Math.random() * animals.length);
+                    if (currentId !== randomIndex) {
+                        const randomAnimal = animals[randomIndex];
+                        return randomAnimal.id;
+                    } else {
+                        randomizer(currentId)
+                    }
+                }
+            return randomizer(currentId)
         });
       }
 }
