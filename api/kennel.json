@@ -54,8 +54,8 @@
       "id": 1,
       "name": "Donny Dolittle",
       "position": "Mop Wielder",
-      "image": "employee1.jpg",
-      "locationId": 2
+      "locationId": 2,
+      "image": "employee1.jpg"
     },
     {
       "id": 2,

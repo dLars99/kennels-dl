@@ -3,7 +3,7 @@ import EmployeeManager from '../../modules/EmployeeManager'
 import AnimalCard from '../animal/AnimalCard'
 
 const EmployeeWithAnimals = props => {
-  const [employee, setEmployee] = useState({});
+  const [employee, setEmployee] = useState({name: "", position: "", image: "employee-default.jpg"});
   const [animals, setAnimals] = useState([]);
 
   useEffect(() => {
@@ -17,15 +17,18 @@ const EmployeeWithAnimals = props => {
 
   return (
     <div className="card">
-      <p>Employee: {employee.name}</p>
-      <p>Position: {employee.position}</p>
-      {animals.map(animal =>
-        <AnimalCard
-          key={animal.id}
-          animal={animal}
-          {...props}
-        />
-      )}
+        <p>Employee: {employee.name}</p>
+        <p>Position: {employee.position}</p>
+        <picture>
+            <img className="detail-image" src={require(`./images/${employee.image}`)} alt="Location" />
+        </picture>
+        {animals.map(animal =>
+            <AnimalCard
+            key={animal.id}
+            animal={animal}
+            {...props}
+            />
+        )}
     </div>
   );
 };

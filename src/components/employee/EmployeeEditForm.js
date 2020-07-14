@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react"
 import EmployeeManager from "../../modules/EmployeeManager"
 import "./EmployeeForm.css"
+import LocationManager from "../../modules/LocationManager";
 
 const EmployeeEditForm = props => {
-  const [employee, setEmployee] = useState({ name: "", position: "" });
+  const [employee, setEmployee] = useState({ name: "", position: "", image: "", locationId: 0 });
+  const [locations, setLocations] = useState([])
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
@@ -20,7 +22,9 @@ const EmployeeEditForm = props => {
     const editedEmployee = {
       id: props.match.params.employeeId,
       name: employee.name,
-      position: employee.position
+      position: employee.position,
+      locationId: parseInt(employee.locationId),
+      image: employee.image
     };
 
     EmployeeManager.update(editedEmployee)
@@ -30,8 +34,12 @@ const EmployeeEditForm = props => {
   useEffect(() => {
     EmployeeManager.get(props.match.params.employeeId)
       .then(employee => {
-        setEmployee(employee);
-        setIsLoading(false);
+        LocationManager.getAll()
+        .then (locations => {
+          setLocations(locations)
+          setEmployee(employee);
+          setIsLoading(false);
+        })
       });
   }, []);
 
@@ -59,6 +67,10 @@ const EmployeeEditForm = props => {
               value={employee.position}
             />
             <label htmlFor="position">Position</label>
+            <select className="form-control" id="locationId" value={employee.locationId} onChange={handleFieldChange}>
+              {locations.map(location => <option key={location.id} value={location.id}>{location.name}</option>)}
+            </select>
+            <label htmlFor="locationId">Location</label>
           </div>
           <div className="alignRight">
             <button
