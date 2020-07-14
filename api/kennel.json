@@ -49,21 +49,25 @@
     {
       "id": 1,
       "name": "Donny Dolittle",
-      "position": "Mop Wielder"
+      "position": "Mop Wielder",
+      "image": "employee1.jpg"
     },
     {
       "id": 2,
       "name": "Tommy Tortis",
-      "position": "Assistant to the Regional Manager"
+      "position": "Assistant to the Regional Manager",
+      "image": "employee2.png"
     },
     {
       "id": 3,
       "name": "Sam Samson",
-      "position": "Alligator Wrangler"
+      "position": "Alligator Wrangler",
+      "image": "employee3.png"
     },
     {
       "name": "Wallace Walby",
       "position": "Marsupial trainer",
+      "image": "employee4.jpg",
       "id": 4
     }
   ],
