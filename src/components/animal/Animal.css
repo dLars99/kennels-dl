@@ -45,8 +45,7 @@
   .card button:hover {
     background-color: darkblue;
   }
-
+  
   .card-image {
-    max-width: 100px;
-    overflow: "auto"
+    max-height: 150px;
   }
