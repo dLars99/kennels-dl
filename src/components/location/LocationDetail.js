@@ -4,7 +4,7 @@ import './LocationDetail.css'
 import EmployeeCard from "../employee/EmployeeCard"
 
 const LocationDetail = props => {
-    const [location, setLocation] = useState({});
+    const [location, setLocation] = useState({name: "", address: "", image: "location-default.jpg" });
     const [employees, setEmployees] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
@@ -12,7 +12,11 @@ const LocationDetail = props => {
         //go here now to make call to get location with employees
         LocationManager.getWithEmployees(props.match.params.locationId)
         .then(APIResult => {
-            setLocation(APIResult);
+            setLocation({
+                name: APIResult.name,
+                address: APIResult.address,
+                image: APIResult.image
+            })
             setEmployees(APIResult.employees)
             setIsLoading(false)
         });
@@ -32,7 +36,9 @@ const LocationDetail = props => {
             <h3>Location: <span style={{ color: 'darkslategrey' }}>{location.name}</span></h3>
             <p>Address: {location.address}</p>
             <button type="button" disabled={isLoading} onClick={handleDelete}>Close</button>
-            <EmployeeCard key={employees.id} employees={employees} {...props} />
+            {employees.map(employee => 
+                <EmployeeCard key={employee.id} employee={employee} {...props} />
+            )}
         </div>
         </div>
     );
