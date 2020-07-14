@@ -11,10 +11,11 @@ const AnimalDetail = props => {
         AnimalManager.get(props.animalId)
         .then(animal => {
             if (animal.id) {
+                const image = (animal.image) ? animal.image : "dog.svg"
                 setAnimal({
                     name: animal.name,
                     breed: animal.breed,
-                    image: animal.image
+                    image: image
                 });
                 setIsLoading(false);
             } else {
