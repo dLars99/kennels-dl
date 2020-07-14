@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import EmployeeCard from "./EmployeeCard"
 import EmployeeManager from "../../modules/EmployeeManager"
+import AnimalManager from "../../modules/AnimalManager"
 
 const EmployeeList = (props) => {
 
@@ -17,8 +18,16 @@ const EmployeeList = (props) => {
     }, [])
 
     const deleteEmployee = id => {
-        EmployeeManager.delete(id)
-        .then(() => EmployeeManager.getAll().then(setEmployees))
+        EmployeeManager.getWithAnimals(id)
+        .then (results => {
+            console.log(results.animals)
+            if (results.animals.length > 0) {
+                alert("Please reassign all of employee's animals before deleting.")
+            } else {
+                EmployeeManager.delete(id)
+                .then(() => EmployeeManager.getAll().then(setEmployees))
+            }
+        })
     }
 
     return (

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import EmployeeManager from '../../modules/EmployeeManager'
 import AnimalCard from '../animal/AnimalCard'
+import AnimalManager from '../../modules/AnimalManager'
 
 const EmployeeWithAnimals = props => {
   const [employee, setEmployee] = useState({name: "", position: "", image: "employee-default.jpg"});
@@ -21,6 +22,12 @@ const EmployeeWithAnimals = props => {
       });
   }, []);
 
+    // Delete animal when discharged
+    const deleteAnimal = id => {
+    AnimalManager.delete(id)
+        .then(() => EmployeeManager.getWithAnimals(props.match.params.employeeId).then(APIResult => setAnimals(APIResult.animals)))
+    }
+
   return (
     <div className="card">
         <p>Employee: {employee.name}</p>
@@ -32,6 +39,7 @@ const EmployeeWithAnimals = props => {
             <AnimalCard
             key={animal.id}
             animal={animal}
+            deleteAnimal={deleteAnimal}
             {...props}
             />
         )}
