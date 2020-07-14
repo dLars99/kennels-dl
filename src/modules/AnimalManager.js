@@ -34,16 +34,13 @@ export default {
         return fetch(`${remoteURL}/animals`)
             .then(result => result.json())
             .then(animals => {
-                const randomizer = (currentId) => {
+                let randomId = currentId
+                while (randomId === currentId) {
                     const randomIndex = Math.floor(Math.random() * animals.length);
-                    if (currentId !== randomIndex) {
-                        const randomAnimal = animals[randomIndex];
-                        return randomAnimal.id;
-                    } else {
-                        randomizer(currentId)
-                    }
-                }
-            return randomizer(currentId)
+                    const randomAnimal = animals[randomIndex];
+                    randomId = randomAnimal.id
+                };
+                return randomId                
         });
       }
 }
