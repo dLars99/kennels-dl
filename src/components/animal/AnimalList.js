@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 //import the components we will need
 import AnimalCard from './AnimalCard';
 import AnimalManager from '../../modules/AnimalManager';
+import "./Animal.css"
 
 const AnimalList = (props) => {
     // The initial state is an empty array

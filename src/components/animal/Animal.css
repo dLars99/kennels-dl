@@ -45,3 +45,8 @@
   .card button:hover {
     background-color: darkblue;
   }
+  
+  .card-image {
+    max-height: 150px;
+    margin: 0 auto;
+  }

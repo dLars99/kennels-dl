@@ -3,38 +3,45 @@
     {
       "id": 1,
       "name": "Doodles",
-      "breed": "Poodle"
+      "breed": "Poodle",
+      "image": "animal1.jpg"
     },
     {
       "id": 2,
       "name": "Decker",
-      "breed": "German Shepherd"
+      "breed": "German Shepherd",
+      "image": "animal2.jpg"
     },
     {
       "id": 3,
       "name": "Esme",
-      "breed": "Pitbull"
+      "breed": "Pitbull",
+      "image": "animal3.jpg"
     },
     {
       "name": "Sparkles",
       "breed": "Carnivorous Platypus",
+      "image": "animal4.png",
       "id": 4
     }
   ],
   "locations": [
     {
       "id": 1,
-      "name": "Donny Dolittle",
-      "position": "Mop Jockey"
+      "name": "Nashville North",
+      "position": "301 Massman Blvd",
+      "image": "location1.jpg"
     },
     {
       "id": 2,
       "name": "Nashville South",
-      "address": "7247 Nolensville Rd."
+      "address": "7247 Nolensville Rd.",
+      "image": "location2.jpg"
     },
     {
       "name": "Murfreesboro",
       "address": "305 Warrior Dr.",
+      "image": "location3.jpg",
       "id": 3
     }
   ],
@@ -42,21 +49,25 @@
     {
       "id": 1,
       "name": "Donny Dolittle",
-      "position": "Mop Wielder"
+      "position": "Mop Wielder",
+      "image": "employee1.jpg"
     },
     {
       "id": 2,
       "name": "Tommy Tortis",
-      "position": "Assistant to the Regional Manager"
+      "position": "Assistant to the Regional Manager",
+      "image": "employee2.png"
     },
     {
       "id": 3,
       "name": "Sam Samson",
-      "position": "Alligator Wrangler"
+      "position": "Alligator Wrangler",
+      "image": "employee3.png"
     },
     {
       "name": "Wallace Walby",
       "position": "Marsupial trainer",
+      "image": "employee4.jpg",
       "id": 4
     }
   ],
