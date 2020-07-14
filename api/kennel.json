@@ -4,8 +4,8 @@
       "id": 1,
       "name": "Doodles",
       "breed": "Poodle",
-      "image": "animal1.jpg",
-      "employeeId": 3
+      "employeeId": 1,
+      "image": "animal1.jpg"
     },
     {
       "id": 2,

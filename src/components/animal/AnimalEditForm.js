@@ -23,7 +23,8 @@ const AnimalEditForm = props => {
       id: props.match.params.animalId,
       name: animal.name,
       breed: animal.breed,
-      employeeId: animal.employeeId
+      employeeId: parseInt(animal.employeeId),
+      image: animal.image
     };
 
     AnimalManager.update(editedAnimal)
