@@ -18,6 +18,7 @@ const EmployeeWithAnimals = props => {
   return (
     <div className="card">
       <p>Employee: {employee.name}</p>
+      <p>Position: {employee.position}</p>
       {animals.map(animal =>
         <AnimalCard
           key={animal.id}
