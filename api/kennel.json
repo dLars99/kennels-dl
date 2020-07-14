@@ -28,17 +28,20 @@
   "locations": [
     {
       "id": 1,
-      "name": "Donny Dolittle",
-      "position": "Mop Jockey"
+      "name": "Nashville North",
+      "position": "301 Massman Blvd",
+      "image": "location1.jpg"
     },
     {
       "id": 2,
       "name": "Nashville South",
-      "address": "7247 Nolensville Rd."
+      "address": "7247 Nolensville Rd.",
+      "image": "location2.jpg"
     },
     {
       "name": "Murfreesboro",
       "address": "305 Warrior Dr.",
+      "image": "location3.jpg",
       "id": 3
     }
   ],
