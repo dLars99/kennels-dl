@@ -4,24 +4,28 @@
       "id": 1,
       "name": "Doodles",
       "breed": "Poodle",
-      "image": "animal1.jpg"
+      "image": "animal1.jpg",
+      "employeeId": 3
     },
     {
       "id": 2,
       "name": "Decker",
       "breed": "German Shepherd",
-      "image": "animal2.jpg"
+      "image": "animal2.jpg",
+      "employeeId": 2
     },
     {
       "id": 3,
       "name": "Esme",
       "breed": "Pitbull",
-      "image": "animal3.jpg"
+      "image": "animal3.jpg",
+      "employeeId": 4
     },
     {
       "name": "Sparkles",
       "breed": "Carnivorous Platypus",
       "image": "animal4.png",
+      "employeeId": 1,
       "id": 4
     }
   ],

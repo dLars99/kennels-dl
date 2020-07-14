@@ -12,6 +12,7 @@ import AnimalForm from "./animal/AnimalForm"
 import AnimalEditForm from "./animal/AnimalEditForm"
 import EmployeeForm from "./employee/EmployeeForm"
 import EmployeeEditForm from "./employee/EmployeeEditForm"
+import EmployeeWithAnimals from "./employee/EmployeeWithAnimals"
 import LocationForm from "./location/LocationForm"
 import OwnerForm from "./owner/OwnerForm"
 import OwnerEditForm from "./owner/OwnerEditForm"
@@ -117,13 +118,20 @@ const ApplicationViews = () => {
                     return <EmployeeForm {...props} />
                 }}
             />
+            <Route
+                path="/employees/:employeeId(\d+)/details"
+                render={(props) => {
+                    return <EmployeeWithAnimals {...props} />
+                }}
+            />
             <Route path="/employees/:employeeId(\d+)/edit" render={props => {
                 if (isAuthenticated()) {
                     return <EmployeeEditForm {...props} />
                 } else {
                     return <Redirect to="/login" />
                 }
-                }} />
+                }}
+            />
             <Route
                 exact path="/owners"
                 render={props => {
