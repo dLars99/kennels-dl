@@ -12,10 +12,12 @@ const LocationDetail = props => {
         //go here now to make call to get location with employees
         LocationManager.getWithEmployees(props.match.params.locationId)
         .then(APIResult => {
+            const image = (APIResult.image) ? APIResult.image : "location-default.jpg"
+
             setLocation({
                 name: APIResult.name,
                 address: APIResult.address,
-                image: APIResult.image
+                image: image
             })
             setEmployees(APIResult.employees)
             setIsLoading(false)
