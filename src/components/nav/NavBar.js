@@ -2,7 +2,12 @@ import React from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import "./NavBar.css";
 
-const NavBar = () => {
+const NavBar = props => {
+    const handleLogout= () => {
+        props.clearUser()
+        props.history.push("/")
+    }
+
   return (
     <header>
         <h1 className="site-title">
@@ -17,26 +22,44 @@ const NavBar = () => {
                 Home
                 </NavLink>
             </li>
-            <li>
+            {props.hasUser
+            ? <li>
                 <NavLink className="nav-link" activeClassName="selected" to="/animals">
                 Animals
                 </NavLink>
             </li>
+            : null}
             <li>
                 <NavLink className="nav-link" activeClassName="selected" to="/locations">
                 Locations
                 </NavLink>
             </li>
-            <li>
+            {props.hasUser
+            ? <li>
                 <NavLink className="nav=link" activeClassName="selected" to="/employees">
                 Employees
                 </NavLink>
             </li>
-            <li>
+            : null}
+            {props.hasUser
+            ? <li>
                 <NavLink className="nav-link" activeClassName="selected" to="/owners">
                 Owners
                 </NavLink>
             </li>
+            : null}
+            {props.hasUser
+            ? <li>
+                <span className="nav-link" onClick={handleLogout}>
+                    Logout
+                </span>
+            </li>
+            : <li>
+                <NavLink className="nav-link" activeClassName="selected" to="/login">
+                    Login
+                </NavLink>
+            </li>
+            }
             </ul>
         </nav>
     </header>
