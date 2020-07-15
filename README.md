@@ -2,7 +2,15 @@
 ## NSS Book 4 React Project
 
 This is the project for NSS Book 4, covering the principles of React.JS. This will be updated as more features are added.
-Currently, the project consists of the code for Chapter 1, which is just the initial setup.
+The project has built upon itself, and now includes four distinct sections: Animals, Employees, Locations, and Owners. The animals and employees are linked datasets, as are the employees and the locations. There is also a simulated login that the user will need to enter to access the full site. Without that login, the user is limited to only the Locations.
+
+In addition to the features requested in the chapters, I have also added the following features:
+- Pictures for the displayed animals, employees, and locations. For each section, a default picture will display if there is no picture in the database.
+- On the homepage animal spotlight, I implemented code to avoid duplicates, ensuring a different animal is displayed each time the Reload button is pressed
+- Chapter 8 shows some example code, but does not implement it. I implemented the function to make sure input data is capitalized.
+- As we run this project on JSON-Server in class, if a deleted object links to a dependent object, that dependent object will delete as well. I implemented a warning to the user to remove or reassign all dependent objects when he/she attempts to delete the master object.
+
+The original requiremenets can be viewed in each chapter [here](https://github.com/nashville-software-school/client-side-mastery/tree/master/book-4-the-apprentice).
 
 ---
 
