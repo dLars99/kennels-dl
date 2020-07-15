@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import LocationManager from '../../modules/LocationManager';
+import APIManager from '../../modules/APIManager';
 import { firstLetterCase } from "../../modules/Helper"
 import './LocationForm.css'
 
@@ -13,7 +13,7 @@ const LocationForm = props => {
     setLocation(stateToChange);
   };
 
-  /*  Local method for validation, set loadingStatus, create Location object, invoke the LocationManager post method, 
+  /*  Local method for validation, set loadingStatus, create Location object, invoke the APIManager post method, 
   and redirect to the full Location list*/
   const constructNewLocation = evt => {
     evt.preventDefault();
@@ -22,7 +22,7 @@ const LocationForm = props => {
     } else {
       setIsLoading(true);
       // Create the Location and redirect user to Location list
-      LocationManager.post(location)
+      APIManager.post("locations", location)
         .then(() => props.history.push("/locations"));
     }
   };

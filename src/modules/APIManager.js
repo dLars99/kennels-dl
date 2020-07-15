@@ -32,5 +32,18 @@ export default {
             },
             body: JSON.stringify(editedLocation)
         }).then(data => data.json())
-    }
+    },
+    getRandomId(source, currentId) {
+        return fetch(`${remoteURL}/${source}`)
+            .then(result => result.json())
+            .then(items => {
+                let randomId = currentId
+                while (randomId === currentId) {
+                    const randomIndex = Math.floor(Math.random() * items.length);
+                    const randomAnimal = items[randomIndex];
+                    randomId = randomAnimal.id
+                };
+                return randomId                
+        });
+      }
 }

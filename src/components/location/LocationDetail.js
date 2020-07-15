@@ -40,6 +40,20 @@ const LocationDetail = props => {
         })    
     }
 
+    const deleteEmployee = id => {
+        APIManager.getWithDependency("employees", id, "animals")
+        .then (results => {
+            // Check if animals assigned to deleted employee have been reassigned
+            if (results.animals.length > 0) {
+                alert("Please reassign all of employee's animals before deleting.")
+            } else {
+                // If employee has no animals, then delete
+                APIManager.delete("employees", id)
+                .then(() => APIManager.getAll("employees").then(setEmployees))
+            }
+        })
+    }
+
     return (
         <div className="card">
         <div className="card-content">
@@ -50,7 +64,7 @@ const LocationDetail = props => {
             <p>Address: {location.address}</p>
             <button type="button" disabled={isLoading} onClick={handleDelete}>Close</button>
             {employees.map(employee => 
-                <EmployeeCard key={employee.id} employee={employee} {...props} />
+                <EmployeeCard key={employee.id} employee={employee} deleteEmployee={deleteEmployee} {...props} />
             )}
         </div>
         </div>

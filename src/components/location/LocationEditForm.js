@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import LocationManager from "../../modules/LocationManager"
+import APIManager from "../../modules/APIManager"
 import { firstLetterCase } from "../../modules/Helper"
 import "./LocationForm.css"
 
@@ -24,12 +24,12 @@ const LocationEditForm = props => {
       address: firstLetterCase(location.address)
     };
 
-    LocationManager.update(editedLocation)
+    APIManager.update("locations", editedLocation)
       .then(() => props.history.push("/locations"))
   }
 
   useEffect(() => {
-    LocationManager.get(props.match.params.locationId)
+    APIManager.get("locations", props.match.params.locationId)
       .then(location => {
         setLocation(location);
         setIsLoading(false);
