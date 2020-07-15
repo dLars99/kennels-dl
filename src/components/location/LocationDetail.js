@@ -22,9 +22,20 @@ const LocationDetail = props => {
         });
     }, []);
 
-    const handleDelete = () => {
-        setIsLoading(true)
-        LocationManager.delete(props.locationId).then(() => props.history.push("/locations"))
+    const handleDelete = () => {      
+        LocationManager.getWithEmployees(props.match.params.locationId)
+        .then (results => {
+            // Check if employees assigned to deleted location have been reassigned
+            if (results.employees.length > 0) {
+                alert("Please reassign or release all of this location's employees before deleting.")
+            } else {
+                // If location has no employees, then delete
+                setIsLoading(true)
+                LocationManager.delete(props.match.params.locationId)
+                .then(() => LocationManager.getAll().then(() => props.history.push("/locations"))
+                )
+            }
+        })    
     }
 
     return (
