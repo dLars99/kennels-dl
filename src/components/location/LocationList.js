@@ -16,9 +16,18 @@ const LocationList = (props) => {
         getLocations()
     }, [])
 
-    const deleteLocation = id => {
-        LocationManager.delete(id)
-        .then(() => LocationManager.getAll().then(setLocations))
+    const deleteLocation = id => {       
+        LocationManager.getWithEmployees(id)
+        .then (results => {
+            // Check if employees assigned to deleted location have been reassigned
+            if (results.employees.length > 0) {
+                alert("Please reassign or release all of this location's employees before deleting.")
+            } else {
+                // If location has no employees, then delete
+                LocationManager.delete(id)
+                .then(() => LocationManager.getAll().then(setLocations))
+            }
+        })    
     }
 
     return (

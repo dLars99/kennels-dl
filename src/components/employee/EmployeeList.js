@@ -20,10 +20,11 @@ const EmployeeList = (props) => {
     const deleteEmployee = id => {
         EmployeeManager.getWithAnimals(id)
         .then (results => {
-            console.log(results.animals)
+            // Check if animals assigned to deleted employee have been reassigned
             if (results.animals.length > 0) {
                 alert("Please reassign all of employee's animals before deleting.")
             } else {
+                // If employee has no animals, then delete
                 EmployeeManager.delete(id)
                 .then(() => EmployeeManager.getAll().then(setEmployees))
             }
