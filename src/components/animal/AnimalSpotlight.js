@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import AnimalManager from "../../modules/AnimalManager";
+import APIManager from "../../modules/APIManager";
 import "./AnimalSpotlight.css";
 
 const AnimalSpotlight = props => {
   const [animal, setAnimal] = useState({ name: "", breed: "", image: "dog.svg" });
 
   useEffect(() => {
-    AnimalManager.get(props.animalId).then(animal => {
+    APIManager.get("animals", props.animalId).then(animal => {
       
       // Queue default image if no image is in the database
       const image = (animal.image) ? animal.image : "dog.svg"

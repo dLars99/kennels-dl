@@ -9,10 +9,10 @@
     },
     {
       "id": 2,
-      "name": "Decker",
+      "name": "Dexter",
       "breed": "German Shepherd",
-      "image": "animal2.jpg",
-      "employeeId": 2
+      "employeeId": 2,
+      "image": "animal2.jpg"
     },
     {
       "id": 3,

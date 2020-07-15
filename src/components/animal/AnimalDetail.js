@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import AnimalManager from '../../modules/AnimalManager';
+import APIManager from '../../modules/APIManager';
 import './AnimalDetail.css'
 
 const AnimalDetail = props => {
@@ -7,8 +7,8 @@ const AnimalDetail = props => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        //get(id) from AnimalManager and hang on to the data; put it into state
-        AnimalManager.get(props.animalId)
+        //get(id) from APIManager and hang on to the data; put it into state
+        APIManager.get("animals", props.animalId)
         .then(animal => {
             if (animal.id) {
                 const image = (animal.image) ? animal.image : "dog.svg"
@@ -26,7 +26,7 @@ const AnimalDetail = props => {
 
     const handleDelete = () => {
         setIsLoading(true);
-        AnimalManager.delete(props.animalId).then(() => props.history.push("/animals"))
+        APIManager.delete("animals", props.animalId).then(() => props.history.push("/animals"))
     }
 
     return (

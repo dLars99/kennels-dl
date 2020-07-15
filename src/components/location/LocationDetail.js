@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import LocationManager from '../../modules/LocationManager';
+import APIManager from '../../modules/APIManager';
 import './LocationDetail.css'
 import EmployeeCard from "../employee/EmployeeCard"
 
@@ -10,7 +10,7 @@ const LocationDetail = props => {
 
     useEffect(() => {
         //go here now to make call to get location with employees
-        LocationManager.getWithEmployees(props.match.params.locationId)
+        APIManager.getWithDependency("locations", props.match.params.locationId, "employees")
         .then(APIResult => {
             const image = (APIResult.image) ? APIResult.image : "location-default.jpg"
 
@@ -25,7 +25,7 @@ const LocationDetail = props => {
     }, []);
 
     const handleDelete = () => {      
-        LocationManager.getWithEmployees(props.match.params.locationId)
+        APIManager.getWithDependency("locations", props.match.params.locationId, "employees")
         .then (results => {
             // Check if employees assigned to deleted location have been reassigned
             if (results.employees.length > 0) {
@@ -33,8 +33,8 @@ const LocationDetail = props => {
             } else {
                 // If location has no employees, then delete
                 setIsLoading(true)
-                LocationManager.delete(props.match.params.locationId)
-                .then(() => LocationManager.getAll().then(() => props.history.push("/locations"))
+                APIManager.delete("locations", props.match.params.locationId)
+                .then(() => APIManager.getAll().then(() => props.history.push("/locations"))
                 )
             }
         })    
