@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import OwnerManager from '../../modules/OwnerManager';
+import { firstLetterCase } from "../../modules/Helper"
 import './OwnerForm.css'
 
 const OwnerForm = props => {
@@ -8,7 +9,7 @@ const OwnerForm = props => {
 
   const handleFieldChange = evt => {
     const stateToChange = { ...owner };
-    stateToChange[evt.target.id] = evt.target.value;
+    stateToChange[evt.target.id] = firstLetterCase(evt.target.value);
     setOwner(stateToChange);
   };
 

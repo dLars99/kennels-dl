@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import LocationManager from '../../modules/LocationManager';
+import { firstLetterCase } from "../../modules/Helper"
 import './LocationForm.css'
 
 const LocationForm = props => {
@@ -8,7 +9,7 @@ const LocationForm = props => {
 
   const handleFieldChange = evt => {
     const stateToChange = { ...location };
-    stateToChange[evt.target.id] = evt.target.value;
+    stateToChange[evt.target.id] = firstLetterCase(evt.target.value);
     setLocation(stateToChange);
   };
 

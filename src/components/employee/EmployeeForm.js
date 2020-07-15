@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import EmployeeManager from '../../modules/EmployeeManager';
+import { firstLetterCase } from "../../modules/Helper"
 import './EmployeeForm.css'
 
 const EmployeeForm = props => {
@@ -8,7 +9,7 @@ const EmployeeForm = props => {
 
   const handleFieldChange = evt => {
     const stateToChange = { ...employee };
-    stateToChange[evt.target.id] = evt.target.value;
+    stateToChange[evt.target.id] = firstLetterCase(evt.target.value);
     setEmployee(stateToChange);
   };
 
