@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import EmployeeManager from "../../modules/EmployeeManager"
+import { firstLetterCase } from "../../modules/Helper"
 import "./EmployeeForm.css"
 import LocationManager from "../../modules/LocationManager";
 
@@ -21,8 +22,8 @@ const EmployeeEditForm = props => {
     // This is an edit, so we need the id
     const editedEmployee = {
       id: props.match.params.employeeId,
-      name: employee.name,
-      position: employee.position,
+      name: firstLetterCase(employee.name),
+      position: firstLetterCase(employee.position),
       locationId: parseInt(employee.locationId),
       image: employee.image
     };

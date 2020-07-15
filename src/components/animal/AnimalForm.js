@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AnimalManager from '../../modules/AnimalManager';
+import { firstLetterCase } from "../../modules/Helper"
 import './AnimalForm.css'
 
 const AnimalForm = props => {
@@ -8,7 +9,7 @@ const AnimalForm = props => {
 
   const handleFieldChange = evt => {
     const stateToChange = { ...animal };
-    stateToChange[evt.target.id] = evt.target.value;
+    stateToChange[evt.target.id] = firstLetterCase(evt.target.value);
     setAnimal(stateToChange);
   };
 

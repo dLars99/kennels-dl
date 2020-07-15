@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import AnimalManager from "../../modules/AnimalManager"
+import { firstLetterCase } from "../../modules/Helper"
 import "./AnimalForm.css"
 import EmployeeManager from "../../modules/EmployeeManager";
 
@@ -21,8 +22,8 @@ const AnimalEditForm = props => {
     // This is an edit, so we need the id
     const editedAnimal = {
       id: props.match.params.animalId,
-      name: animal.name,
-      breed: animal.breed,
+      name: firstLetterCase(animal.name),
+      breed: firstLetterCase(animal.breed),
       employeeId: parseInt(animal.employeeId),
       image: animal.image
     };

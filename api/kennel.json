@@ -55,9 +55,9 @@
       "id": 3
     },
     {
+      "id": 4,
       "name": "North Canton",
-      "address": "5614 Cleveland Ave NW",
-      "id": 4
+      "address": "5614 Cleveland Ave NW"
     }
   ],
   "employees": [
@@ -77,10 +77,10 @@
     },
     {
       "id": 3,
-      "name": "Sam Samson",
+      "name": "Paul Paulson",
       "position": "Alligator Wrangler",
-      "image": "employee3.png",
-      "locationId": 3
+      "locationId": 3,
+      "image": "employee3.png"
     },
     {
       "name": "Wallace Walby",
