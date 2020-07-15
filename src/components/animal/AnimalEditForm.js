@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react"
-import AnimalManager from "../../modules/AnimalManager"
+import APIManager from "../../modules/APIManager"
 import { firstLetterCase } from "../../modules/Helper"
 import "./AnimalForm.css"
-import EmployeeManager from "../../modules/EmployeeManager";
 
 const AnimalEditForm = props => {
   const [animal, setAnimal] = useState({ name: "", breed: "", employeeId: 0, image: "" });
@@ -28,14 +27,14 @@ const AnimalEditForm = props => {
       image: animal.image
     };
 
-    AnimalManager.update(editedAnimal)
+    APIManager.update("animals", editedAnimal)
       .then(() => props.history.push("/animals"))
   }
 
   useEffect(() => {
-    AnimalManager.get(props.match.params.animalId)
+    APIManager.get("animals", props.match.params.animalId)
       .then(animal => {
-        EmployeeManager.getAll()
+        APIManager.getAll("employees")
         .then(employees => {
           setEmployees(employees)  
           setAnimal(animal);

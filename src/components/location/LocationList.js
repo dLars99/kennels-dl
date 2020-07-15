@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react"
 import LocationCard from "./LocationCard"
-import LocationManager from "../../modules/LocationManager"
+import APIManager from "../../modules/APIManager"
 
 const LocationList = (props) => {
 
     const [locations, setLocations] = useState([])
 
     const getLocations = () => {
-        return LocationManager.getAll().then(locationsFromAPI => {
+        return APIManager.getAll("locations").then(locationsFromAPI => {
             setLocations(locationsFromAPI)
         })
     }
@@ -17,15 +17,15 @@ const LocationList = (props) => {
     }, [])
 
     const deleteLocation = id => {       
-        LocationManager.getWithEmployees(id)
+        APIManager.getWithDependency("locations", id, "employees")
         .then (results => {
             // Check if employees assigned to deleted location have been reassigned
             if (results.employees.length > 0) {
                 alert("Please reassign or release all of this location's employees before deleting.")
             } else {
                 // If location has no employees, then delete
-                LocationManager.delete(id)
-                .then(() => LocationManager.getAll().then(setLocations))
+                APIManager.delete("locations", id)
+                .then(() => APIManager.getAll("locations").then(setLocations))
             }
         })    
     }

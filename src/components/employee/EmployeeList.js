@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react"
 import EmployeeCard from "./EmployeeCard"
-import EmployeeManager from "../../modules/EmployeeManager"
-import AnimalManager from "../../modules/AnimalManager"
+import APIManager from "../../modules/APIManager"
 
 const EmployeeList = (props) => {
 
     const [employees, setEmployees] = useState([])
 
     const getEmployees = () => {
-        return EmployeeManager.getAll().then(employeesFromAPI => {
+        return APIManager.getAll("employees").then(employeesFromAPI => {
             setEmployees(employeesFromAPI)
         })
     }
@@ -18,15 +17,15 @@ const EmployeeList = (props) => {
     }, [])
 
     const deleteEmployee = id => {
-        EmployeeManager.getWithAnimals(id)
+        APIManager.getWithDependency("employees", id, "animals")
         .then (results => {
             // Check if animals assigned to deleted employee have been reassigned
             if (results.animals.length > 0) {
                 alert("Please reassign all of employee's animals before deleting.")
             } else {
                 // If employee has no animals, then delete
-                EmployeeManager.delete(id)
-                .then(() => EmployeeManager.getAll().then(setEmployees))
+                APIManager.delete("employees", id)
+                .then(() => APIManager.getAll("employees").then(setEmployees))
             }
         })
     }

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react"
 import OwnerCard from "./OwnerCard"
-import OwnerManager from "../../modules/OwnerManager"
+import APIManager from "../../modules/APIManager"
 
 const OwnerList = (props) => {
 
     const [owners, setOwners] = useState([])
 
     const getOwners = () => {
-        return OwnerManager.getAll().then(ownersFromAPI => {
+        return APIManager.getAll("owners").then(ownersFromAPI => {
             setOwners(ownersFromAPI)
         })
     }
@@ -17,8 +17,8 @@ const OwnerList = (props) => {
     }, [])
 
     const deleteOwner = id => {
-        OwnerManager.delete(id)
-        .then(() => OwnerManager.getAll().then(setOwners))
+        APIManager.delete("owners", id)
+        .then(() => APIManager.getAll("owners").then(setOwners))
     }
 
     return (

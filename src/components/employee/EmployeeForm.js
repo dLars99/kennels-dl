@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import EmployeeManager from '../../modules/EmployeeManager';
+import APIManager from '../../modules/APIManager';
 import { firstLetterCase } from "../../modules/Helper"
 import './EmployeeForm.css'
 
@@ -13,7 +13,7 @@ const EmployeeForm = props => {
     setEmployee(stateToChange);
   };
 
-  /*  Local method for validation, set loadingStatus, create Employee object, invoke the EmployeeManager post method, 
+  /*  Local method for validation, set loadingStatus, create Employee object, invoke the APIManager post method, 
   and redirect to the full Employee list*/
   const constructNewEmployee = evt => {
     evt.preventDefault();
@@ -22,7 +22,7 @@ const EmployeeForm = props => {
     } else {
       setIsLoading(true);
       // Create the employee and redirect user to employee list
-      EmployeeManager.post(employee)
+      APIManager.post("employees", employee)
         .then(() => props.history.push("/employees"));
     }
   };

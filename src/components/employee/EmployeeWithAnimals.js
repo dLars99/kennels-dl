@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import EmployeeManager from '../../modules/EmployeeManager'
+import APIManager from '../../modules/APIManager'
 import AnimalCard from '../animal/AnimalCard'
-import AnimalManager from '../../modules/AnimalManager'
 
 const EmployeeWithAnimals = props => {
   const [employee, setEmployee] = useState({name: "", position: "", image: "employee-default.jpg"});
@@ -10,7 +9,7 @@ const EmployeeWithAnimals = props => {
 
   useEffect(() => {
     //got here now make call to get employee with animal
-    EmployeeManager.getWithAnimals(props.match.params.employeeId)
+    APIManager.getWithDependency("employees", props.match.params.employeeId, "animals")
       .then(APIResult => {
           const image = (APIResult.image) ? APIResult.image : "employee-default.jpg"
         setEmployee({
@@ -26,12 +25,12 @@ const EmployeeWithAnimals = props => {
 
     // Delete animal when discharged
     const deleteAnimal = id => {
-    AnimalManager.delete(id)
-        .then(() => EmployeeManager.getWithAnimals(props.match.params.employeeId).then(APIResult => setAnimals(APIResult.animals)))
+    APIManager.delete("animals", id)
+        .then(() => APIManager.getWithDependency("employees", props.match.params.employeeId, "animals").then(APIResult => setAnimals(APIResult.animals)))
     }
 
     const handleDelete = () => {      
-        EmployeeManager.getWithAnimals(props.match.params.employeeId)
+        APIManager.getWithDependency("employees", props.match.params.employeeId, "animals")
         .then (results => {
             // Check if animals assigned to deleted employee have been reassigned
             if (results.animals.length > 0) {
@@ -39,8 +38,8 @@ const EmployeeWithAnimals = props => {
             } else {
                 // If employee has no animals, then delete
                 setIsLoading(true)
-                EmployeeManager.delete(props.match.params.employeeId)
-                .then(() => EmployeeManager.getAll().then(() => props.history.push("/employees"))
+                APIManager.delete("employees", props.match.params.employeeId)
+                .then(() => APIManager.getAll("employees").then(() => props.history.push("/employees"))
                 )
             }
         })    

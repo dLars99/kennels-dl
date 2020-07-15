@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react"
-import EmployeeManager from "../../modules/EmployeeManager"
+import APIManager from "../../modules/APIManager"
 import { firstLetterCase } from "../../modules/Helper"
 import "./EmployeeForm.css"
-import LocationManager from "../../modules/LocationManager";
 
 const EmployeeEditForm = props => {
   const [employee, setEmployee] = useState({ name: "", position: "", image: "", locationId: 0 });
@@ -28,14 +27,14 @@ const EmployeeEditForm = props => {
       image: employee.image
     };
 
-    EmployeeManager.update(editedEmployee)
+    APIManager.update("employees", editedEmployee)
       .then(() => props.history.push("/employees"))
   }
 
   useEffect(() => {
-    EmployeeManager.get(props.match.params.employeeId)
+    APIManager.get("employees", props.match.params.employeeId)
       .then(employee => {
-        LocationManager.getAll()
+        APIManager.getAll("locations")
         .then (locations => {
           setLocations(locations)
           setEmployee(employee);

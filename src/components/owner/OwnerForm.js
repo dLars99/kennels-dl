@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import OwnerManager from '../../modules/OwnerManager';
+import APIManager from '../../modules/APIManager';
 import { firstLetterCase } from "../../modules/Helper"
 import './OwnerForm.css'
 
@@ -13,7 +13,7 @@ const OwnerForm = props => {
     setOwner(stateToChange);
   };
 
-  /*  Local method for validation, set loadingStatus, create Owner object, invoke the OwnerManager post method, 
+  /*  Local method for validation, set loadingStatus, create Owner object, invoke the APIManager post method, 
   and redirect to the full Owner list*/
   const constructNewOwner = evt => {
     evt.preventDefault();
@@ -22,7 +22,7 @@ const OwnerForm = props => {
     } else {
       setIsLoading(true);
       // Create the Owner and redirect user to Owner list
-      OwnerManager.post(owner)
+      APIManager.post("owners", owner)
         .then(() => props.history.push("/owners"));
     }
   };

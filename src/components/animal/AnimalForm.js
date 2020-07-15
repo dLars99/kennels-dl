@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AnimalManager from '../../modules/AnimalManager';
+import APIManager from '../../modules/APIManager';
 import { firstLetterCase } from "../../modules/Helper"
 import './AnimalForm.css'
 
@@ -13,7 +13,7 @@ const AnimalForm = props => {
     setAnimal(stateToChange);
   };
 
-  /*  Local method for validation, set loadingStatus, create animal object, invoke the AnimalManager post method, 
+  /*  Local method for validation, set loadingStatus, create animal object, invoke the APIManager post method, 
   and redirect to the full animal list*/
   const constructNewAnimal = evt => {
     evt.preventDefault();
@@ -22,7 +22,7 @@ const AnimalForm = props => {
     } else {
       setIsLoading(true);
       // Create the animal and redirect user to animal list
-      AnimalManager.post(animal)
+      APIManager.post("animals", animal)
         .then(() => props.history.push("/animals"));
     }
   };

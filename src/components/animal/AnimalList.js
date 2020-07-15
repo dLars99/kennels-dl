@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 //import the components we will need
 import AnimalCard from './AnimalCard';
-import AnimalManager from '../../modules/AnimalManager';
+import APIManager from '../../modules/APIManager';
 import "./Animal.css"
 
 const AnimalList = (props) => {
@@ -11,7 +11,7 @@ const AnimalList = (props) => {
     const getAnimals = () => {
         // After the data comes back from the API, we
         //  use the setAnimals function to update state
-        return AnimalManager.getAll().then(animalsFromAPI => {
+        return APIManager.getAll("animals").then(animalsFromAPI => {
         setAnimals(animalsFromAPI)
         });
     };
@@ -23,8 +23,8 @@ const AnimalList = (props) => {
 
     // Delete animal when discharged
     const deleteAnimal = id => {
-        AnimalManager.delete(id)
-            .then(() => AnimalManager.getAll().then(setAnimals))
+        APIManager.delete("animals", id)
+            .then(() => APIManager.getAll("animals").then(setAnimals))
     }
 
     // Finally we use map() to "loop over" the animals array to show a list of animal cards

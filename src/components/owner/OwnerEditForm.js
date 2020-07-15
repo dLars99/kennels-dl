@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import OwnerManager from "../../modules/OwnerManager"
+import APIManager from "../../modules/APIManager"
 import { firstLetterCase } from "../../modules/Helper"
 import "./OwnerForm.css"
 
@@ -23,12 +23,12 @@ const OwnerEditForm = props => {
       name: firstLetterCase(owner.name),
     };
 
-    OwnerManager.update(editedOwner)
+    APIManager.update("owners", editedOwner)
       .then(() => props.history.push("/owners"))
   }
 
   useEffect(() => {
-    OwnerManager.get(props.match.params.ownerId)
+    APIManager.get("owners", props.match.params.ownerId)
       .then(owner => {
         setOwner(owner);
         setIsLoading(false);
