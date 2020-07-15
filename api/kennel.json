@@ -31,8 +31,8 @@
     {
       "id": 5,
       "name": "Chubbs",
-      "breed": "Spork",
-      "employeeId": 2
+      "breed": "Pot-Bellied Pig",
+      "employeeId": 3
     }
   ],
   "locations": [
@@ -53,6 +53,11 @@
       "address": "305 Warrior Dr.",
       "image": "location3.jpg",
       "id": 3
+    },
+    {
+      "name": "North Canton",
+      "address": "5614 Cleveland Ave NW",
+      "id": 4
     }
   ],
   "employees": [

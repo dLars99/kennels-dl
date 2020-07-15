@@ -7,10 +7,14 @@ const AnimalSpotlight = props => {
 
   useEffect(() => {
     AnimalManager.get(props.animalId).then(animal => {
+      
+      // Queue default image if no image is in the database
+      const image = (animal.image) ? animal.image : "dog.svg"
+
       setAnimal({
         name: animal.name,
         breed: animal.breed,
-        image: animal.image
+        image: image
       });
     });
   }, [props.animalId]);
