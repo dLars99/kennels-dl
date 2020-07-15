@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import LocationManager from "../../modules/LocationManager"
+import { firstLetterCase } from "../../modules/Helper"
 import "./LocationForm.css"
 
 const LocationEditForm = props => {
@@ -19,8 +20,8 @@ const LocationEditForm = props => {
     // This is an edit, so we need the id
     const editedLocation = {
       id: props.match.params.locationId,
-      name: location.name,
-      address: location.address
+      name: firstLetterCase(location.name),
+      address: firstLetterCase(location.address)
     };
 
     LocationManager.update(editedLocation)

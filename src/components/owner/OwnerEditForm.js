@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import OwnerManager from "../../modules/OwnerManager"
+import { firstLetterCase } from "../../modules/Helper"
 import "./OwnerForm.css"
 
 const OwnerEditForm = props => {
@@ -19,8 +20,7 @@ const OwnerEditForm = props => {
     // This is an edit, so we need the id
     const editedOwner = {
       id: props.match.params.ownerId,
-      name: owner.name,
-      breed: owner.breed
+      name: firstLetterCase(owner.name),
     };
 
     OwnerManager.update(editedOwner)
