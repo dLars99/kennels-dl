@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import "./NavBar.css";
 
 const NavBar = props => {
-    const handleLogout= () => {
+
+    const [searchTerm, setSearchTerm] = useState("")
+
+    const handleSearch = (evt) => {
+        if (evt.key === "Enter") {
+            props.history.push(`/search/${searchTerm.search}`)
+        }
+    }
+
+    const handleFieldChange = evt => {
+        const stateToChange = { ...searchTerm };
+        stateToChange[evt.target.id] = evt.target.value;
+        setSearchTerm(stateToChange);
+      };
+
+    const handleLogout = () => {
         props.clearUser()
         props.history.push("/")
     }
@@ -46,6 +61,11 @@ const NavBar = props => {
                 <NavLink className="nav-link" activeClassName="selected" to="/owners">
                 Owners
                 </NavLink>
+            </li>
+            : null}
+            {props.hasUser
+            ? <li>
+                <input type="text" id="search" onChange={handleFieldChange} onKeyPress={handleSearch} placeholder="search" />
             </li>
             : null}
             {props.hasUser

@@ -45,5 +45,8 @@ export default {
                 };
                 return randomId                
         });
-      }
+    },
+    getSearch(source, searchTerm) {
+        return fetch(`${remoteURL}/${source}?q=${searchTerm}`).then(result => result.json())
+    }
 }

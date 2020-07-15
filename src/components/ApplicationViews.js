@@ -17,6 +17,7 @@ import LocationForm from "./location/LocationForm"
 import OwnerForm from "./owner/OwnerForm"
 import OwnerEditForm from "./owner/OwnerEditForm"
 import Login from "./auth/Login"
+import SearchResults from "./search/SearchResults";
 
 const ApplicationViews = (props) => {
     const hasUser = props.hasUser
@@ -152,6 +153,15 @@ const ApplicationViews = (props) => {
                     return <Redirect to="/login" />
                 }
                 }} 
+            />
+            <Route path="/search/:searchTerm" 
+                render={props => {
+                if (hasUser) {
+                    return <SearchResults {...props} />
+                } else {
+                    return <Redirect to="/login" />
+                }
+            }}
             />
         </React.Fragment>
     );
