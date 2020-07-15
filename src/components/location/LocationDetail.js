@@ -34,7 +34,7 @@ const LocationDetail = props => {
                 // If location has no employees, then delete
                 setIsLoading(true)
                 APIManager.delete("locations", props.match.params.locationId)
-                .then(() => APIManager.getAll().then(() => props.history.push("/locations"))
+                .then(() => APIManager.getAll("locations").then(() => props.history.push("/locations"))
                 )
             }
         })    
@@ -43,11 +43,11 @@ const LocationDetail = props => {
     const deleteEmployee = id => {
         APIManager.getWithDependency("employees", id, "animals")
         .then (results => {
-            // Check if animals assigned to deleted employee have been reassigned
+            // Check if employees assigned to deleted location have been reassigned
             if (results.animals.length > 0) {
                 alert("Please reassign all of employee's animals before deleting.")
             } else {
-                // If employee has no animals, then delete
+                // If location has no employees, then delete
                 APIManager.delete("employees", id)
                 .then(() => APIManager.getAll("employees").then(setEmployees))
             }
