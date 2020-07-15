@@ -151,8 +151,8 @@ const ApplicationViews = (props) => {
                 } else {
                     return <Redirect to="/login" />
                 }
-                }} />
-            
+                }} 
+            />
         </React.Fragment>
     );
 };
