@@ -154,12 +154,12 @@ const ApplicationViews = (props) => {
                 }
                 }} 
             />
-            <Route 
+            {/* <Route 
                 exact path="/search"
                 render={props => {
                     return <Redirect to="/" />
                 }}
-            />
+            /> */}
             <Route path="/search"
                 render={props => {
                 if (hasUser) {

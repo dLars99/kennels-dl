@@ -9,10 +9,10 @@ const SearchResults = (props) => {
     const [locations, setLocations] = useState([])
 
     useEffect(() => {
-        APIManager.getSearch("animals", props.match.params.searchTerm).then(animalMatches => setAnimals(animalMatches))
-        APIManager.getSearch("employees", props.match.params.searchTerm).then(employeeMatches => setEmployees(employeeMatches))
-        APIManager.getSearch("locations", props.match.params.searchTerm).then(locationMatches => setLocations(locationMatches))
-    }, [props.match.params.searchTerm])
+        APIManager.getSearch("animals", props.location.state.search).then(animalMatches => setAnimals(animalMatches))
+        APIManager.getSearch("employees", props.location.state.search).then(employeeMatches => setEmployees(employeeMatches))
+        APIManager.getSearch("locations", props.location.state.search).then(locationMatches => setLocations(locationMatches))
+    }, [props.location.state.search])
 
     return (
         <div className="results">
