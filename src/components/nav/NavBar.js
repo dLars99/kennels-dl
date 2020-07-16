@@ -7,7 +7,7 @@ const NavBar = props => {
     const [searchTerm, setSearchTerm] = useState("")
 
     const handleSearch = (evt) => {
-        if (evt.key === "Enter") {
+        if (evt.key === "Enter" && searchTerm !== "") {
             props.history.push("/search", searchTerm)
         }
     }

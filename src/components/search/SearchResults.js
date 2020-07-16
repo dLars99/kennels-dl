@@ -20,32 +20,41 @@ const SearchResults = (props) => {
         <div className="results">
             <div className="results-section">
                 <h2>Matching Animals</h2>
-                {animals.map(animal => {
-                    return (       
-                    <div key={animal.id}>
-                    <h3>{animal.name}</h3>
-                    <p>{animal.breed}</p>
-                    </div>
+                {animals.length > 0
+                ? animals.map(animal => {
+                    return (      
+                        <div key={animal.id}>
+                        <h3>{animal.name}</h3>
+                        <p>{animal.breed}</p>
+                        </div>
                     )
-                })}
+                })
+                : (<p>No matches found</p>)
+                }
                 <h2>Matching Employees</h2>
-                {employees.map(employee => {
+                {employees.length > 0
+                ? employees.map(employee => {
                     return (
-                    <div key={employee.id}>
-                    <h3>{employee.name}</h3>
-                    <p>{employee.position}</p>
-                    </div>
+                        <div key={employee.id}>
+                        <h3>{employee.name}</h3>
+                        <p>{employee.position}</p>
+                        </div>
                     )
-                })}
+                })
+                : (<p>No matches found</p>)
+                }
                 <h2>Matching Locations</h2>
-                {locations.map(location => {
+                {locations.length > 0
+                ? locations.map(location => {
                     return (
-                    <div key={location.id}>
-                    <h3>{location.name}</h3>
-                    <p>{location.address}</p>
-                    </div>
+                        <div key={location.id}>
+                        <h3>{location.name}</h3>
+                        <p>{location.address}</p>
+                        </div>
                     )
-                })}
+                })
+                : (<p>No matches found</p>)
+                }
             </div>
         </div>
     )
