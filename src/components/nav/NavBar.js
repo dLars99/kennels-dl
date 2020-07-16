@@ -8,7 +8,7 @@ const NavBar = props => {
 
     const handleSearch = (evt) => {
         if (evt.key === "Enter") {
-            props.history.push(`/search/${searchTerm.search}`)
+            props.history.push("/search")
         }
     }
 

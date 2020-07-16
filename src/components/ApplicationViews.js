@@ -154,7 +154,13 @@ const ApplicationViews = (props) => {
                 }
                 }} 
             />
-            <Route path="/search/:searchTerm" 
+            <Route 
+                exact path="/search"
+                render={props => {
+                    return <Redirect to="/" />
+                }}
+            />
+            <Route path="/search"
                 render={props => {
                 if (hasUser) {
                     return <SearchResults {...props} />

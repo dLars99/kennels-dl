@@ -12,7 +12,7 @@ const SearchResults = (props) => {
         APIManager.getSearch("animals", props.match.params.searchTerm).then(animalMatches => setAnimals(animalMatches))
         APIManager.getSearch("employees", props.match.params.searchTerm).then(employeeMatches => setEmployees(employeeMatches))
         APIManager.getSearch("locations", props.match.params.searchTerm).then(locationMatches => setLocations(locationMatches))
-    }, [])
+    }, [props.match.params.searchTerm])
 
     return (
         <div className="results">
