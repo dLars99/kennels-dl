@@ -9,9 +9,11 @@ const SearchResults = (props) => {
     const [locations, setLocations] = useState([])
 
     useEffect(() => {
-        APIManager.getSearch("animals", props.location.state.search).then(animalMatches => setAnimals(animalMatches))
-        APIManager.getSearch("employees", props.location.state.search).then(employeeMatches => setEmployees(employeeMatches))
-        APIManager.getSearch("locations", props.location.state.search).then(locationMatches => setLocations(locationMatches))
+        // Remove whitespace from the search term, then retrieve the results from the database
+        const searchTerm = props.location.state.search.replace(/\s/g, "%20")
+        APIManager.getSearch("animals", searchTerm).then(animalMatches => setAnimals(animalMatches))
+        APIManager.getSearch("employees", searchTerm).then(employeeMatches => setEmployees(employeeMatches))
+        APIManager.getSearch("locations", searchTerm).then(locationMatches => setLocations(locationMatches))
     }, [props.location.state.search])
 
     return (
@@ -19,24 +21,30 @@ const SearchResults = (props) => {
             <div className="results-section">
                 <h2>Matching Animals</h2>
                 {animals.map(animal => {
-                    return <>
+                    return (       
+                    <div key={animal.id}>
                     <h3>{animal.name}</h3>
                     <p>{animal.breed}</p>
-                    </>
+                    </div>
+                    )
                 })}
                 <h2>Matching Employees</h2>
                 {employees.map(employee => {
-                    return <>
+                    return (
+                    <div key={employee.id}>
                     <h3>{employee.name}</h3>
                     <p>{employee.position}</p>
-                    </>
+                    </div>
+                    )
                 })}
                 <h2>Matching Locations</h2>
                 {locations.map(location => {
-                    return <>
+                    return (
+                    <div key={location.id}>
                     <h3>{location.name}</h3>
                     <p>{location.address}</p>
-                    </>
+                    </div>
+                    )
                 })}
             </div>
         </div>
